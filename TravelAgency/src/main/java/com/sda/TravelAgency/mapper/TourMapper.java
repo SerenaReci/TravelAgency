@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class TourMapper {
-    public ResponseTourDto tourDto(Tour tour){
-        ResponseTourDto responseTourDto=new ResponseTourDto();
+    public ResponseTourDto tourDto(Tour tour) {
+        ResponseTourDto responseTourDto = new ResponseTourDto();
         responseTourDto.setId(tour.getId());
         responseTourDto.setDuration(tour.getDuration());
         responseTourDto.setDestination(tour.getDestination());
@@ -21,14 +21,14 @@ public class TourMapper {
         return responseTourDto;
     }
 
-    public Tour toEntity(CreateTourDto createTourDto){
-        Tour tour=new Tour();
+    public Tour toEntity(CreateTourDto createTourDto) {
+        Tour tour = new Tour();
         tour.setId(createTourDto.getId());
         tour.setDuration(createTourDto.getDuration());
         tour.setPromotion(createTourDto.getPromotion());
         tour.setDestination(createTourDto.getDestination());
         tour.setDepartureDate(createTourDto.getDepartureDate());
-        tour.setAccommodationType(createTourDto.getAccomodationType());
+        tour.setAccommodationType(createTourDto.getAccommodationType());
         tour.setPriceAdult(createTourDto.getPriceAdult());
         tour.setPriceChild(createTourDto.getPriceChild());
         tour.setReturnDate(createTourDto.getReturnDate());

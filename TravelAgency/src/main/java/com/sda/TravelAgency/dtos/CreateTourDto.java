@@ -17,7 +17,7 @@ public class CreateTourDto {
     private int priceAdult;
     private int priceChild;
     private int promotion;
-    private String accomodationType;
+    private String accommodationType;
 
 
 }

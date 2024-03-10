@@ -16,7 +16,7 @@ public class TourController {
     private TourService tourService;
 
     @PostMapping("/save")
-    public <ResponseTourDto> save (@RequestBody CreateTourDto createTourDto){
+    public ResponseTourDto save (@RequestBody CreateTourDto createTourDto){
         return tourService.save(createTourDto);
     }
 
