@@ -11,12 +11,12 @@ public class TourMapper {
         ResponseTourDto responseTourDto=new ResponseTourDto();
         responseTourDto.setId(tour.getId());
         responseTourDto.setDuration(tour.getDuration());
-        responseTourDto.setDestionation(tour.getDestination());
+        responseTourDto.setDestination(tour.getDestination());
         responseTourDto.setPromotion(tour.getPromotion());
         responseTourDto.setDepartureDate(tour.getDepartureDate());
         responseTourDto.setPriceAdult(tour.getPriceAdult());
         responseTourDto.setPriceChild(tour.getPriceChild());
-        responseTourDto.setAccomodationType(tour.getAccomodationType());
+        responseTourDto.setAccommodationType(tour.getAccommodationType());
         responseTourDto.setReturnDate(tour.getReturnDate());
         return responseTourDto;
     }
@@ -28,7 +28,7 @@ public class TourMapper {
         tour.setPromotion(createTourDto.getPromotion());
         tour.setDestination(createTourDto.getDestination());
         tour.setDepartureDate(createTourDto.getDepartureDate());
-        tour.setAccomodationType(createTourDto.getAccomodationType());
+        tour.setAccommodationType(createTourDto.getAccomodationType());
         tour.setPriceAdult(createTourDto.getPriceAdult());
         tour.setPriceChild(createTourDto.getPriceChild());
         tour.setReturnDate(createTourDto.getReturnDate());

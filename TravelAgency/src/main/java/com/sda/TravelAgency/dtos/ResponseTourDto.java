@@ -9,12 +9,12 @@ import java.time.LocalDate;
 @Setter
 public class ResponseTourDto {
     private Long id;
-    private String destionation;
+    private String destination;
     private LocalDate departureDate;
     private LocalDate returnDate;
     private int duration;
     private int priceAdult;
     private int priceChild;
     private int promotion;
-    private String accomodationType;
+    private String accommodationType;
 }

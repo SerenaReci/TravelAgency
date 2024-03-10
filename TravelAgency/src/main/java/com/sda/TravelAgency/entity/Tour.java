@@ -23,5 +23,5 @@ public class Tour {
     private int priceAdult;
     private int priceChild;
     private int promotion;
-    private String accomodationType;
+    private String accommodationType;
 }
