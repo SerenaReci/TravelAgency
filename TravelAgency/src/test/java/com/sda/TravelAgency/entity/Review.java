@@ -1,4 +1,4 @@
-package com.sda.TravelAgency;
+package com.sda.TravelAgency.entity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
