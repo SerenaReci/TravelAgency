@@ -3,7 +3,13 @@ package com.sda.TravelAgency.controller;
 import com.sda.TravelAgency.dtos.CreateTourDto;
 import com.sda.TravelAgency.dtos.ResponseTourDto;
 import com.sda.TravelAgency.service.TourService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,33 +17,80 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/tour")
+@Tag(
+        name ="tour-controller")
 
 public class TourController {
     private TourService tourService;
 
+    @Operation(
+            summary = "Create TourController REST API",
+            description = "Create TourController REST API is used to save post into database"
+    )
+
+    @ApiResponse(
+            responseCode = "201",
+            description = "Http Status 201 CREATED"
+    )
+
     @PostMapping("/save")
-    public ResponseTourDto save (@RequestBody CreateTourDto createTourDto){
-        return tourService.save(createTourDto);
+    public ResponseEntity<ResponseTourDto> save(@Valid @RequestBody CreateTourDto createTourDto){
+        return new ResponseEntity<>(tourService.save(createTourDto), HttpStatus.CREATED);
     }
 
+    @Operation(
+            summary = "Find All Tour REST API",
+            description = "Find All Tour REST API is used to fetch all the tour from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 SUCCESS"
+    )
     @GetMapping("/findAll")
-    public List<ResponseTourDto>findAll(){
-        return tourService.findAll();
-    }
-    @GetMapping("/findById/{id}")
-    public ResponseTourDto findById(@PathVariable("id")Long id) {
-        return tourService.findById(id);
+    public ResponseEntity<List<ResponseTourDto>>findAll(){
+        return  ResponseEntity.ok(tourService.findAll());
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseTourDto update(@RequestBody CreateTourDto createTourDto,@PathVariable("id")Long id){
-        return tourService.updateById(createTourDto,id);
+    @Operation(
+            summary = "Get Tour By Id REST API",
+            description = "Get Tour By Id REST API is used to get a single tour from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 SUCCESS"
+    )
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<ResponseTourDto> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(tourService.findById(id));
     }
+
+    @Operation(
+            summary = "update Tour REST API",
+            description = "Update Tour REST API is used to update a particular tour in the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 SUCCESS"
+    )
+    @PutMapping("/update/{id}")
+    public ResponseEntity<ResponseTourDto> update(@Valid @RequestBody CreateTourDto createTourDto, @PathVariable("id") Long id) {
+        return ResponseEntity.ok(tourService.updateById(createTourDto, id));
+    }
+
+    @Operation(
+            summary = "Delete Tour REST API",
+            description = "Delete Tour REST API is used to delete a particular tour from the database"
+    )
+    @ApiResponse(
+            responseCode = "200",
+            description = "Http Status 200 SUCCESS"
+    )
     @DeleteMapping("/delete/{id}")
-    public String deleteById(@PathVariable("id") Long id) {
+    public ResponseEntity<String> deleteById(@PathVariable("id") Long id) {
         tourService.deleteById(id);
-        return "Tour with id: "+ id+ " was successfully deleted!";
+        return ResponseEntity.ok("Tour with id: "+ id+ " was successfully deleted!");
     }
 }
+
 
 
