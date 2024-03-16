@@ -1,7 +1,7 @@
 package com.sda.TravelAgency.mapper;
 
-import com.sda.TravelAgency.dtos.CreateTourDto;
-import com.sda.TravelAgency.dtos.ResponseTourDto;
+import com.sda.TravelAgency.dtos.tourDto.CreateTourDto;
+import com.sda.TravelAgency.dtos.tourDto.ResponseTourDto;
 import com.sda.TravelAgency.entity.Tour;
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,6 @@ public class TourMapper {
 
     public Tour toEntity(CreateTourDto createTourDto) {
         Tour tour = new Tour();
-        tour.setId(createTourDto.getId());
         tour.setDuration(createTourDto.getDuration());
         tour.setPromotion(createTourDto.getPromotion());
         tour.setDestination(createTourDto.getDestination());

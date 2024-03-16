@@ -1,24 +1,15 @@
-package com.sda.TravelAgency.entity;
-import jakarta.persistence.*;
+package com.sda.TravelAgency.dtos.reviewsDto;
+
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
 import jakarta.validation.constraints.Size;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
+
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-@Table(name="reviews")
-public class Review {
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-
-    @NotNull(message = "Id cannot be null")
-    private Long id;
+public class CreateReviewDto {
     @NotEmpty(message = "Name cannot be empty")
     private String name;
 
@@ -34,19 +25,4 @@ public class Review {
 
     @NotNull(message = "Number of stars must be specified")
     private Integer nr_Of_stars;
-
-    @ManyToOne(fetch =FetchType.LAZY)
-    @JoinColumn(name= "tour_id",nullable = false)
-    private Tour tour;
-
-    }
-
-
-
-
-
-
-
-
-
-
+}

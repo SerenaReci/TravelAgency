@@ -9,6 +9,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import java.time.LocalDate;
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -45,4 +47,7 @@ public class Tour {
 
     @NotBlank(message = "Accommodation type cannot be blank")
     private String accommodationType;
+
+    @OneToMany(mappedBy = "tour",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+    private Set<Review> reviewSet;
 }

@@ -1,4 +1,4 @@
-package com.sda.TravelAgency.dtos;
+package com.sda.TravelAgency.dtos.tourDto;
 
 import lombok.Getter;
 import lombok.Setter;

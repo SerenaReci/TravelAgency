@@ -1,8 +1,8 @@
 package com.sda.TravelAgency.controller;
 
-import com.sda.TravelAgency.dtos.tourDto.CreateTourDto;
-import com.sda.TravelAgency.dtos.tourDto.ResponseTourDto;
-import com.sda.TravelAgency.service.TourService;
+import com.sda.TravelAgency.dtos.categoryDto.CreateCategoryDto;
+import com.sda.TravelAgency.dtos.categoryDto.ResponseCategoryDto;
+import com.sda.TravelAgency.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -16,26 +16,25 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/api/tour")
+@RequestMapping("/api/category")
 @Tag(
-        name ="tour-controller")
+        name ="category-controller")
 
-public class TourController {
-    private TourService tourService;
+public class CategoryController {
+    private CategoryService categoryService;
 
     @Operation(
-            summary = "Create TourController REST API",
-            description = "Create TourController REST API is used to save post into database"
+            summary = "Create Tour REST API",
+            description = "Create Tour REST API is used to save post into database"
     )
-
     @ApiResponse(
             responseCode = "201",
             description = "Http Status 201 CREATED"
     )
 
     @PostMapping("/save")
-    public ResponseEntity<ResponseTourDto> save(@Valid @RequestBody CreateTourDto createTourDto){
-        return new ResponseEntity<>(tourService.save(createTourDto), HttpStatus.CREATED);
+    public ResponseEntity<ResponseCategoryDto> save(@Valid @RequestBody CreateCategoryDto createCategoryDto){
+        return new ResponseEntity<>(categoryService.save(createCategoryDto), HttpStatus.CREATED);
     }
 
     @Operation(
@@ -47,8 +46,8 @@ public class TourController {
             description = "Http Status 200 SUCCESS"
     )
     @GetMapping("/findAll")
-    public ResponseEntity<List<ResponseTourDto>>findAll(){
-        return  ResponseEntity.ok(tourService.findAll());
+    public ResponseEntity<List<ResponseCategoryDto>>findAll(){
+        return  ResponseEntity.ok(categoryService.findAll());
     }
 
     @Operation(
@@ -60,8 +59,8 @@ public class TourController {
             description = "Http Status 200 SUCCESS"
     )
     @GetMapping("/findById/{id}")
-    public ResponseEntity<ResponseTourDto> findById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(tourService.findById(id));
+    public ResponseEntity<ResponseCategoryDto> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(categoryService.findById(id));
     }
 
     @Operation(
@@ -73,8 +72,8 @@ public class TourController {
             description = "Http Status 200 SUCCESS"
     )
     @PutMapping("/update/{id}")
-    public ResponseEntity<ResponseTourDto> update(@Valid @RequestBody CreateTourDto createTourDto, @PathVariable("id") Long id) {
-        return ResponseEntity.ok(tourService.updateById(createTourDto, id));
+    public ResponseEntity<ResponseCategoryDto> update(@Valid @RequestBody CreateCategoryDto createCategoryDto, @PathVariable("id") Long id) {
+        return ResponseEntity.ok(categoryService.updateById(createCategoryDto, id));
     }
 
     @Operation(
@@ -87,8 +86,8 @@ public class TourController {
     )
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteById(@PathVariable("id") Long id) {
-        tourService.deleteById(id);
-        return ResponseEntity.ok("Tour with id: "+ id+ " was successfully deleted!");
+        categoryService.deleteById(id);
+        return ResponseEntity.ok("Category with id: "+ id+ " was successfully deleted!");
     }
 }
 

@@ -1,4 +1,4 @@
-package com.sda.TravelAgency.dtos;
+package com.sda.TravelAgency.dtos.tourDto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
@@ -11,8 +11,6 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class CreateTourDto {
-    @NotNull(message = "Id cannot be null")
-    private Long id;
 
     @NotBlank(message = "Destination cannot be blank")
     private String destination;

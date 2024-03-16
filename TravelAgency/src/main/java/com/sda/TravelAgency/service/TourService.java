@@ -1,6 +1,6 @@
 package com.sda.TravelAgency.service;
-import com.sda.TravelAgency.dtos.CreateTourDto;
-import com.sda.TravelAgency.dtos.ResponseTourDto;
+import com.sda.TravelAgency.dtos.tourDto.CreateTourDto;
+import com.sda.TravelAgency.dtos.tourDto.ResponseTourDto;
 import com.sda.TravelAgency.entity.Tour;
 import com.sda.TravelAgency.mapper.TourMapper;
 import com.sda.TravelAgency.repository.TourRepository;
@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @Service
 public class TourService{
-    //    @Autowired
+
     private TourRepository tourRepository;
     private TourMapper tourMapper;
     public ResponseTourDto save(CreateTourDto createTourDto) {
