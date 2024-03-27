@@ -38,7 +38,6 @@ public class Review {
     @ManyToOne(fetch =FetchType.LAZY)
     @JoinColumn(name= "tour_id",nullable = false)
     private Tour tour;
-
     }
 
 

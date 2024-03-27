@@ -29,4 +29,6 @@ public class Category {
     @NotBlank(message = "Description cannot be empty")
     private String Description;
 
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Tour> tourSet;
 }
