@@ -1,14 +1,17 @@
 package com.sda.TravelAgency.controller;
 
 import com.sda.TravelAgency.dtos.userDtos.CreateLoginDto;
+import com.sda.TravelAgency.dtos.userDtos.RegisterUserDto;
+import com.sda.TravelAgency.entity.User;
 import com.sda.TravelAgency.service.AuthenticationService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,10 +33,16 @@ public class AuthenticationController {
             description = "Http Status 201 CREATED"
     )
 
-    @PreAuthorize("/login")
+    @PostMapping("/login")
     public ResponseEntity<Authentication> login(@Valid @RequestBody
                                                 CreateLoginDto createLoginDto) {
 
         return ResponseEntity.ok(authenticationService.login(createLoginDto));
     }
+    @PostMapping("/register")
+    public ResponseEntity<User>register(@Valid @RequestBody
+                                        RegisterUserDto registerUserDto){
+        return new ResponseEntity(authenticationService.UserRegister(registerUserDto), HttpStatus.CREATED);
+    }
+
 }

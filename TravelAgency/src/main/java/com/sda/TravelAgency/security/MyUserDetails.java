@@ -30,8 +30,7 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return userEntity.getPassword();
-    }
+        return userEntity.getPassword();}
     @Override
     public String getUsername() {
         return userEntity.getEmail();

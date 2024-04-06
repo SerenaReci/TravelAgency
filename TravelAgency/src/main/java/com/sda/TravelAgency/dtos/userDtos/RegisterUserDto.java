@@ -25,10 +25,8 @@ public class RegisterUserDto {
     @Email(message = "Email should be valid")
     private String email;
 
-    @Valid
-    private List<CreateRoleDto> roles;
 
 }
 
 
-}
+

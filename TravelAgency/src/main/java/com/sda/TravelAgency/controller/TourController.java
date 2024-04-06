@@ -2,6 +2,7 @@ package com.sda.TravelAgency.controller;
 
 import com.sda.TravelAgency.dtos.tourDto.CreateTourDto;
 import com.sda.TravelAgency.dtos.tourDto.ResponseTourDto;
+import com.sda.TravelAgency.entity.Tour;
 import com.sda.TravelAgency.service.TourService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -12,6 +13,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -90,7 +92,23 @@ public class TourController {
         tourService.deleteById(id);
         return ResponseEntity.ok("Tour with id: "+ id+ " was successfully deleted!");
     }
+    @GetMapping("/search")
+    public ResponseEntity<List<ResponseTourDto>>searchTours(
+        @RequestParam(value="destination",required = false) String destination,
+        @RequestParam(value="departureDate",required = false) LocalDate departureDate,
+        @RequestParam(value="returnDate",required = false) LocalDate returnDate,
+        @RequestParam(value ="duration ",required = false) Integer duration,
+        @RequestParam(value ="priceAdult",required = false) Integer priceAdult,
+        @RequestParam(value ="priceChild",required = false) Integer priceChild,
+        @RequestParam(value ="promotion",required = false) Integer promotion,
+        @RequestParam(value ="accommodationType",required = false) String accommodationType)
+    {
+
+            return ResponseEntity.ok(tourService.searchTours(destination,departureDate,returnDate,duration,priceChild, priceAdult,promotion,accommodationType));
+        }
 }
+
+
 
 
 

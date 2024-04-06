@@ -40,7 +40,7 @@ public class CategoryService{
         Category foundCategory = categoryRepository.findById(existingId).orElseThrow(
                 () -> new RuntimeException("Category with id: " + existingId + " was not found!"));
         foundCategory.setId(existingId);
-        foundCategory.setTour_Type(createCategoryDto.getTour_Type());
+        foundCategory.setName(createCategoryDto.getName());
         foundCategory.setDescription(createCategoryDto.getDescription());
         Category savedCategory = categoryRepository.save(foundCategory);
         return categoryMapper.CategoryDto(savedCategory);

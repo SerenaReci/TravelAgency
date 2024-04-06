@@ -2,7 +2,6 @@ package com.sda.TravelAgency.service;
 
 import com.sda.TravelAgency.dtos.roleDtos.CreateRoleDto;
 import com.sda.TravelAgency.dtos.roleDtos.ResponseRoleDto;
-import com.sda.TravelAgency.dtos.userDtos.CreateUserDto;
 import com.sda.TravelAgency.entity.Role;
 import com.sda.TravelAgency.mapper.RoleMapper;
 import com.sda.TravelAgency.repository.RoleRepository;

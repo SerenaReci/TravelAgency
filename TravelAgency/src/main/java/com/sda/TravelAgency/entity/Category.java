@@ -24,10 +24,10 @@ public class Category {
     private Long id;
 
     @NotBlank(message = "Tour_Type cannot be empty")
-    private String Tour_Type;
+    private String name;
 
     @NotBlank(message = "Description cannot be empty")
-    private String Description;
+    private String description;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<Tour> tourSet;

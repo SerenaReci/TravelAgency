@@ -11,14 +11,14 @@ public class CategoryMapper {
             ResponseCategoryDto responseCategoryDto= new ResponseCategoryDto();
             responseCategoryDto.setId(category.getId());
             responseCategoryDto.setDescription(category.getDescription());
-            responseCategoryDto.setTour_Type(category.getTour_Type());
+            responseCategoryDto.setName(category.getName());
             return responseCategoryDto;
         }
 
         public Category toEntity(CreateCategoryDto createCategoryDto) {
             Category category = new Category();
             category.setDescription(createCategoryDto.getDescription());
-            category.setTour_Type(createCategoryDto.getTour_Type());
+            category.setName(createCategoryDto.getName());
 
             return category;
         }

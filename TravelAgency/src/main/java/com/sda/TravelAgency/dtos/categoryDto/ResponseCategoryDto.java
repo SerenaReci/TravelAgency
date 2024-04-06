@@ -7,6 +7,6 @@ import lombok.Setter;
 @Setter
 public class ResponseCategoryDto {
     private Long id;
-    private String Tour_Type;
-    private String Description;
+    private String name;
+    private String description;
 }
