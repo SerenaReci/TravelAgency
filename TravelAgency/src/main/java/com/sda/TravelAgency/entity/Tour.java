@@ -48,11 +48,12 @@ public class Tour {
     @NotBlank(message = "Accommodation type cannot be blank")
     private String accommodationType;
 
-    @OneToMany(mappedBy = "tour",cascade = CascadeType.ALL,orphanRemoval = true,fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "tour", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     private Set<Review> reviewSet;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
+    //adding git configuration
 }
 
